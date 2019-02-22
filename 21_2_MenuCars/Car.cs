@@ -1,0 +1,12 @@
+﻿namespace _21_2_MenuCars
+{
+    public class Car
+    {
+        public string Name { get; private set; }
+
+        public Car(string name)
+        {
+            Name = name;
+        }
+    }
+}
