@@ -6,8 +6,8 @@ namespace _23_2_BinaryAdittion
     {
         static void Main(string[] args)
         {
-            int number1 = new Random().Next(1, 1000);
-            int number2 = new Random().Next(1, 2000);
+            int number1 = 1; //new Random().Next(1, 1000);
+            int number2 = 2; // new Random().Next(1, 2000);
             var number3 = number1 + number2;
             Console.WriteLine("Cislo 1 ktore som si vymyslel je {0}", number1);
             Console.WriteLine("Cislo 2 ktore som si vymyslel je {0}", number2);
@@ -48,6 +48,7 @@ namespace _23_2_BinaryAdittion
                     else
                     {
                         binary = binary + "0";
+                        binary = binary == "0" ? "" : "1";
                         y--;
                     }
                     power = Math.Pow(z, y);
