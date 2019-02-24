@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_2TriangleCheck", "23_2Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_2SmileyCounter", "23_2SmileyCounter\23_2SmileyCounter.csproj", "{39462610-7817-4758-B3F7-8314986D1EE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24_2SmileyCounter2", "24_2SmileyCounter2\24_2SmileyCounter2.csproj", "{669D1D34-5F36-453A-90F2-9BAF07BB380B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{39462610-7817-4758-B3F7-8314986D1EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39462610-7817-4758-B3F7-8314986D1EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39462610-7817-4758-B3F7-8314986D1EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{669D1D34-5F36-453A-90F2-9BAF07BB380B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{669D1D34-5F36-453A-90F2-9BAF07BB380B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{669D1D34-5F36-453A-90F2-9BAF07BB380B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{669D1D34-5F36-453A-90F2-9BAF07BB380B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

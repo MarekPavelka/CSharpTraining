@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 
 namespace _23_2SmileyCounter
 {
