@@ -20,7 +20,7 @@ namespace _23_2SmileyCounter
         static int ReturnSmiley(string[] smileys)
         {
             var index = 0;
-            var output = 0;
+            var output = 0; 
 
             while (index < smileys.Length)
             {
