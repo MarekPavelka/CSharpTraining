@@ -28,15 +28,15 @@ namespace _24_2SmileyCounter2
         public static int CountSmileys(List<string> smileys)
         {
             Regex containsSmile = new Regex("[:;][-~]?[)D]");
-            int Count = 0;
+            int count = 0;
             foreach (string smile in smileys)
             {
                 if (containsSmile.IsMatch(smile))
                 {
-                    ++Count;
+                    count++;
                 }
             }
-            return Count;
+            return count;
         }
     }
 }
