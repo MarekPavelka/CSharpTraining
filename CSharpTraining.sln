@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_2_SummationFrom1toNum", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_2TriangleCheck", "23_2TriangleCheck\23_2TriangleCheck.csproj", "{4F21CD3A-117E-4B0E-B4B7-3A25B0778AD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_2SmileyCounter", "23_2SmileyCounter\23_2SmileyCounter.csproj", "{39462610-7817-4758-B3F7-8314986D1EE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{4F21CD3A-117E-4B0E-B4B7-3A25B0778AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F21CD3A-117E-4B0E-B4B7-3A25B0778AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F21CD3A-117E-4B0E-B4B7-3A25B0778AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39462610-7817-4758-B3F7-8314986D1EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39462610-7817-4758-B3F7-8314986D1EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39462610-7817-4758-B3F7-8314986D1EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39462610-7817-4758-B3F7-8314986D1EE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

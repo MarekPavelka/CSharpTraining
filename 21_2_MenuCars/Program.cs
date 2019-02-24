@@ -7,6 +7,7 @@ namespace _21_2_MenuCars
     {
         public static void Main()
         {
+            //classy
             var carName = "audi";
             var car1 = new Car(carName);
             var car2 = new Car("bmw");
@@ -14,6 +15,8 @@ namespace _21_2_MenuCars
             list.Add(car1);
             list.Add(car2);
             list.Remove(car1);
+
+            // classy end
 
             var carList = new List<string>();
             var selection = 0;
