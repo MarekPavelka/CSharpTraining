@@ -19,15 +19,15 @@
             return _list.ToList();
         }
 
-        public void DeleteAt(int index)
-        {
-            _list.RemoveAt(index);
-        }
-
         public void ReplaceAt(int index, Car newValue)
         {
             _list.RemoveAt(index);
             _list.Insert(index, newValue);
+        }
+
+        public void DeleteAt(int index)
+        {
+            _list.RemoveAt(index);
         }
     }
 }

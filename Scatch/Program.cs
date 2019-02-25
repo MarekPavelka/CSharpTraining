@@ -8,13 +8,13 @@
             var lengthOfArray = array.Length;
             array.ToString();
 
-            Sorceress mojChar = new Sorceress();
+            Sorceress mojChar = new Sorceress("");
             mojChar.Name = "Jozka";
             mojChar.KillYourself();
 
             var className = Sorceress.ClassName;
             Foo();
-            Sorceress tvojChar = new Sorceress();
+            Sorceress tvojChar = new Sorceress("");
             tvojChar.Name = "Fidorka";
 
             int x = 1;
