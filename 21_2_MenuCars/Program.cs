@@ -17,7 +17,8 @@ namespace _21_2_MenuCars
             list.Remove(car1);
 
             // classy end  
-
+            var x = "abc";
+            x.
             var carList = new List<string>();
             var selection = 0;
 
