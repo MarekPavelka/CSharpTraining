@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
 namespace _24_2SmileyCounter2
 {
-    using System.Runtime.InteropServices;
 
     class Program
     {
@@ -23,6 +18,7 @@ namespace _24_2SmileyCounter2
                 Console.WriteLine("Zadaj {0}. smajlika a potvrd enterom", counter + 1);
                 listSmajlikov.Add(Console.ReadLine());
             }
+
             Console.WriteLine("Naratal som {0} smajlikov ktore poznam", CountSmileys(listSmajlikov));
             Console.ReadKey();
         }
@@ -38,6 +34,7 @@ namespace _24_2SmileyCounter2
                     count++;
                 }
             }
+
             return count;
         }
 
@@ -59,13 +56,15 @@ namespace _24_2SmileyCounter2
         public static bool IsSmiley(string smiley)
         {
             // Smajliky ktore poznam su :) :D ;) ;D :-) ;-) :-D ;-D
-            if (!smiley.StartsWith(":") && !smiley.StartsWith(";"))
+
+            var hasCorrectStart = smiley.StartsWith(":") || smiley.StartsWith(";");
+            if (!hasCorrectStart)
             {
                 return false;
             }
 
-            var hasCorrectEnding = !smiley.EndsWith(")") && !smiley.EndsWith("D");
-            if (hasCorrectEnding)
+            var hasCorrectEnding = smiley.EndsWith(")") || smiley.EndsWith("D");
+            if (!hasCorrectEnding)
             {
                 return false;
             }
@@ -79,5 +78,15 @@ namespace _24_2SmileyCounter2
             char nose = smiley[1];
             return nose == '-' || nose == '~';
         }
+
+        public static bool IsSmiley2(string smiley)
+        {
+            // Smajliky ktore poznam su :) :D ;) ;D :-) ;-) :-D ;-D
+            var validSmileys = new List<string> { ":)", ":D", ";)", ";D", ":-)", ";-)", ":-D", ";-D" };
+            var isSmileyValid = validSmileys.Contains(smiley);
+
+            return isSmileyValid;
+        }
     }
 }
+
