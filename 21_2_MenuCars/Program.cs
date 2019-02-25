@@ -15,10 +15,9 @@ namespace _21_2_MenuCars
             list.Add(car1);
             list.Add(car2);
             list.Remove(car1);
-
             // classy end  
 
-            var carList = new List<string>();
+            var carList = new List<Car>();
             var selection = 0;
 
             while (selection != 5)
@@ -58,44 +57,49 @@ namespace _21_2_MenuCars
             Console.WriteLine("     MENU\n\n1. Pridat Auto\n2. Zobrazit Auta\n3. Premenovat Auto\n4. Zmazat Auto\n5. Koniec");
         }
 
-        static void ShowCarList(List<string> carListXY) // vypisanie listu
+        static void ShowCarList(List<Car> carListXY) // vypisanie listu
         {
             for (int index = 0; index < carListXY.Count; index++)
             {
-                Console.WriteLine(" {0}. {1} ", index + 1, carListXY[index]);
+                var car = carListXY[index];
+                Console.WriteLine(" {0}. {1} ", index + 1, car.Name);
             }
         }
 
-        static void AddCar(List<string> addedCarListXY) // pridavania aut do listu
+        static void AddCar(List<Car> addedCarListXY) // pridavania aut do listu
         {
             Console.WriteLine("Pre ukoncenie pridavania napis \"done\"");
             Console.WriteLine();
-            var writeSomething = "";
+            var carName = "";
 
-            for (int carNumber = 1; writeSomething != "done"; carNumber++)
+            for (int carNumber = 1; carName != "done"; carNumber++)
             {
                 Console.WriteLine("Zadaj {0}. auto:", carNumber);
-                writeSomething = Console.ReadLine();
-                if (writeSomething != "done")
+                carName = Console.ReadLine();
+                if (carName != "done")
                 {
-                    addedCarListXY.Add(writeSomething); // pridas auto do listu
+                    var newCar = new Car(carName);
+                    addedCarListXY.Add(newCar); // pridas auto do listu
                 }
             }
         }
 
-        static void RenameCar(List<string> carListXY)
+        static void RenameCar(List<Car> carListXY)
         {
             ShowCarList(carListXY);
             Console.WriteLine("Zadaj cislo auta ktore chces premenovat: ");
             var index = int.Parse(Console.ReadLine());
             Console.Clear();
             Console.WriteLine("Zadaj nove meno auta:");
-            carListXY[index - 1] = Console.ReadLine();
+            var newCarName = Console.ReadLine();
+            var newCar = new Car(newCarName);
+            carListXY.RemoveAt(index - 1);
+            carListXY.Insert(index - 1, newCar);
             Console.WriteLine("Pre navrat stlac any key");
             Console.ReadKey();
         }
 
-        static void RemoveCar(List<string> removedCarListXY)
+        static void RemoveCar(List<Car> removedCarListXY)
         {
             ShowCarList(removedCarListXY);
             Console.WriteLine("Zadaj cislo auta ktore chces zmazat: ");
