@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_2SmileyCounter", "23_2Sm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24_2SmileyCounter2", "24_2SmileyCounter2\24_2SmileyCounter2.csproj", "{669D1D34-5F36-453A-90F2-9BAF07BB380B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechControl", "SpeechControl\SpeechControl.csproj", "{DD664CD1-148D-4E14-BC9C-B7BD86D63D3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{669D1D34-5F36-453A-90F2-9BAF07BB380B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{669D1D34-5F36-453A-90F2-9BAF07BB380B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{669D1D34-5F36-453A-90F2-9BAF07BB380B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD664CD1-148D-4E14-BC9C-B7BD86D63D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD664CD1-148D-4E14-BC9C-B7BD86D63D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD664CD1-148D-4E14-BC9C-B7BD86D63D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD664CD1-148D-4E14-BC9C-B7BD86D63D3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
