@@ -12,7 +12,7 @@ namespace _23_2SmileyCounter
             -A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
             -Every smiling face must have a smiling mouth that should be marked with either) or D.*/
 
-            var feeder = new[] { ":", ".", ")", ";", "~", "D",":","-",")","]","-",";",")",":","]" };
+            var feeder = new[] { ":", ".", ")", ";", "~", "D", ":", "-", ")", "]", "-", ";", ")", ":", "]" };
             var numberOfSmileys = ReturnSmiley(feeder);
             Console.WriteLine("Pocet smajlikov som naratal {0}", numberOfSmileys);
             Console.ReadKey();
@@ -20,7 +20,7 @@ namespace _23_2SmileyCounter
         static int ReturnSmiley(string[] smileys)
         {
             var index = 0;
-            var output = 0; 
+            var output = 0;
 
             while (index < smileys.Length)
             {
@@ -55,5 +55,28 @@ namespace _23_2SmileyCounter
             }
             return output;
         }
-}
+        /*  public static bool IsSmiley(string smiley)
+        {
+            // Smajliky ktore poznam su :) :D ;) ;D :-) ;-) :-D ;-D
+            if (!smiley.StartsWith(":") && !smiley.StartsWith(";"))
+            {
+                return false;
+            }
+
+            var hasCorrectEnding = !smiley.EndsWith(")") && !smiley.EndsWith("D");
+            if (hasCorrectEnding)
+            {
+                return false;
+            }
+
+            var hasNose = smiley.Length > 2;
+            if (!hasNose)
+            {
+                return true;
+            }
+
+            char nose = smiley[1];
+            return nose == '-' || nose == '~';
+        }*/
+    }
 }

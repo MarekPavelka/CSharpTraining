@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqTutorial", "LinqTutoria
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZlteKarticky", "ZlteKarticky\ZlteKarticky.csproj", "{99EBD261-326D-4193-B37E-18542AB92739}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_03_ZlteKarticky", "01_03_ZlteKarticky\01_03_ZlteKarticky.csproj", "{949B3A21-7875-4C0C-85A0-01B3E7C86E09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{99EBD261-326D-4193-B37E-18542AB92739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99EBD261-326D-4193-B37E-18542AB92739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99EBD261-326D-4193-B37E-18542AB92739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{949B3A21-7875-4C0C-85A0-01B3E7C86E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949B3A21-7875-4C0C-85A0-01B3E7C86E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949B3A21-7875-4C0C-85A0-01B3E7C86E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949B3A21-7875-4C0C-85A0-01B3E7C86E09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
