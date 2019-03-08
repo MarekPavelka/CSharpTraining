@@ -53,6 +53,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZlteKarticky", "ZlteKartick
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_03_ZlteKarticky", "01_03_ZlteKarticky\01_03_ZlteKarticky.csproj", "{949B3A21-7875-4C0C-85A0-01B3E7C86E09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_03_ZlteKarticky", "ConsoleApp1\02_03_ZlteKarticky.csproj", "{1E20D4E7-E6F0-43D6-B7F3-AAB2EDF28C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_03_Classes", "08_03_Classes\08_03_Classes.csproj", "{7373AA78-CFD6-4D98-B25E-76F44FCC846F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +163,14 @@ Global
 		{949B3A21-7875-4C0C-85A0-01B3E7C86E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{949B3A21-7875-4C0C-85A0-01B3E7C86E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{949B3A21-7875-4C0C-85A0-01B3E7C86E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E20D4E7-E6F0-43D6-B7F3-AAB2EDF28C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E20D4E7-E6F0-43D6-B7F3-AAB2EDF28C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E20D4E7-E6F0-43D6-B7F3-AAB2EDF28C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E20D4E7-E6F0-43D6-B7F3-AAB2EDF28C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7373AA78-CFD6-4D98-B25E-76F44FCC846F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7373AA78-CFD6-4D98-B25E-76F44FCC846F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7373AA78-CFD6-4D98-B25E-76F44FCC846F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7373AA78-CFD6-4D98-B25E-76F44FCC846F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
