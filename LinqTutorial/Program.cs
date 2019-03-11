@@ -1,156 +1,178 @@
 ﻿namespace LinqTutorial
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.InteropServices;
 
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            Console.WriteLine("====");
+            Console.WriteLine("  X ===");
+            Console.WriteLine("====");
+            Console.ReadKey();
             // Linq 1
             // Select(), Where(), Any(), All(), Count(), First(),
             // Min(), Max(), Sum(), Average(), ToList(), ToArray()
             // Skip(), SkipWhile(), Take()
+
             // Linq 2
-            // list1.Zip(list2, (l,p) => TResult) : List<TResult>
-            // List<TLeft>.Zip(List<TRight>, (TLeft, TRight) => TResult) : List<Tresult>
-            // list.GroupBy()
+            // Zip(), GroupBy(), Join(), SelectMany(), Aggregate()
+
+            // Materializing Methods
+            // Any(), All(), Count(), First(), 
+            // Min(), Max(), Sum(), Average(), ToList(), ToArray()
+            Linq2Examples.JoinExample2();
+        }
+    }
+
+    class Linq2Examples
+    {
+        // List<TLeft> .Zip(List<TRight>, (TLeft, TRight) => TResult) : List<TResult>
+        public static void ZipExample()
+        {
+            var inputsCount = 3;
+            var inputs = new List<double> { 1.2, 3.4, 7.2 };
+            var weights = new int[] { 8, -1, 7 };
+
+            // Neuron.Evaluate(double[] inputs)
+            var sum = 0.0;
+            for (int i = 0; i < inputsCount; i++)
+            {
+                sum = sum + inputs[i] * weights[i];
+            }
+
+            var sum2 = inputs.Zip(weights, (i, w) => i * w).Sum();
         }
 
-        // List<TSource> .Select(TSource -> TResult) : List<TResult> 
-        // Named "Map()" in other languages
-        static void SelectExample()
+        // EvaluateNet
+        public static void ZipExample2()
         {
-            // Declarative    { 2, 5, 7} -> { "2", "5", "7"}
-            List<int> source = new List<int> { 2, 5, 7 };
-            List<string> result = source
-                                 .Select(x => x.ToString())
-                                 .ToList();
+            var inputs = new[] { 1.2, -5.3, 4 };
+            var inputNeurons = new[] { new Neuron(), new Neuron(), new Neuron() };
+            var hiddenNeurons = new[] { new Neuron(), new Neuron(), new Neuron() };
+            var outputNeurons = new[] { new Neuron(), new Neuron(), new Neuron() };
 
-            // Imperative    { 2, 5, 7} -> { "2", "5", "7"} 
-            //List<int> source = new List<int> { 2, 5, 7 };
-            //List<string> result = new List<string>();
-            //foreach (var x in source)
-            //{
-            //    result.Add(x.ToString());
-            //}
+            var inputLayerResults = inputs.Zip(inputNeurons, (input, neuron) => neuron.Evaluate(new[] { input })).ToArray();
+            var hiddenResults = hiddenNeurons.Select(neuron => neuron.Evaluate(inputLayerResults)).ToArray();
+            var outputResults = outputNeurons.Select(neuron => neuron.Evaluate(hiddenResults));
         }
 
-        // List<TSource> .Where(TSource -> bool) : List<TSource>
-        // Named "Filter()" in other languages
-        // Funkcia T -> bool is called "predicate"
-        static void WhereExample()
+        class Neuron
         {
-            // { 2, 5, 7, 0} -> { 2, 0 }
-            List<int> source = new List<int> { 2, 5, 7, 0 };
-            List<int> result = source
-                              .Where(x => IsEven(x))
-                              //.Where(x => x % 2 == 0)
-                              .ToList();
-
-            // Imperative
-            //var source2 = new List<int> {2, 5, 7, 0};
-            //var result2 = new List<int>();
-            //foreach (var x in source2)
-            //{
-            //    if (x % 2 == 0)
-            //    {
-            //        result2.Add(x);
-            //    }
-            //}
+            public double Evaluate(double[] inputs) => 0.0;
         }
 
-        static bool IsEven(int x)
+        public static void GroupByExample()
         {
-            return x % 2 == 0;
+            var names = new[] { "Jozo", "Ferdinand", "Harabin", "Vlado", "Fedor", "Kubo" };
+            var groupsWithSameLength = names.GroupBy(x => x.Length).ToList(); // x => x.Length keySelector 
+            // { <4, {Jozo, Kubo}>, <5, {Vlado, Fedor}>, <7, {Harabin}>, <9, {Ferdinand}>}
+            var jozo = groupsWithSameLength[0].First(); // alternatively [0].ToList()[0];
         }
 
-        // List<TSource> .Any(TSource -> bool) : bool
-        static void AnyExample()
+        public static void JoinExample()
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            bool result = source.Any(); // source.Count > 0;
-            bool result2 = source.Any(x => x % 2 == 0); // true, because source collection contains 2
+            var numbers = new[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            var labels = new[] { "parne", "neparne" };
+
+            var pairs =
+                numbers.Join(labels,
+                    n => n % 2 == 0,  // true alebo false
+                    l => l == "parne",
+                    (n, l) => new Pair(n, l));
         }
 
-        // List<TSource> .All(TSource -> bool) : bool
-        static void AllExample()
+        class Pair
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            // false, because not all items in source collection are even
-            bool result = source.All(x => x % 2 == 0);
+            public int Number { get; }
+            public string Label { get; }
+
+            public Pair(int number, string label)
+            {
+                Number = number;
+                Label = label;
+            }
         }
 
-        // List<TSource> .Count(TSource -> bool) : int
-        static void CountExample()
+        public static void JoinExample2()
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            int result = source.Count();
-            int result2 = source.Count(x => x % 2 == 0); // 1, because there is only one even item in source
-            // source.Where(x => x % 2 == 0).Count() // equivalent
+            var people = new[] { new Person(1, "Jozef"), new Person(2, "Ferdinand"), new Person(1, "Peter") };
+            var cities = new[] { new City(1, "Bratislava"), new City(2, "Zilina") };
+
+
+            var personRecords = people.Join(cities,
+                p => p.CityId,                              // left key selector
+                c => c.Id,                                  // right key selector
+                (p, c) => $"{c.CityName} - {p.Name}"       // result selector
+            ).ToList();
         }
 
-        // List<TSource> .First(TSource -> bool) : TSource
-        static void FirstExample()
+        class Person
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            int result = source.First();
-            int result2 = source.First(x => x > 2); // 5
-                                                    // source.Where(x => x > 2).First() // equivalent
+            public int CityId { get; set; } // property
+            public string Name; // public field
 
-            // returns 0, because default(int) is 0 (would be null for reference types)
-            int result3 = source.FirstOrDefault(x => x > 10);
+            public Person(int cityId, string name)
+            {
+                CityId = cityId;
+                Name = name;
+            }
         }
 
-        static void MinExample()
+        class City
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            int result = source.Min(); // 2
+            public int Id;
+            public string CityName;
+
+            public City(int id, string cityName)
+            {
+                Id = id;
+                CityName = cityName;
+            }
         }
 
-        static void MaxExample()
+        // named "FlatMap" in other languages
+        public static void SelectManyExample()
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            int result = source.Max(); // 7
+            var personGroups = new[]
+            {
+                new[] { "Jozef", "Vlado" },
+                new[] { "Peto" },
+                new[] { "Marek" }
+            };
+
+            // Flatten
+            var personList = personGroups.SelectMany(group => group).ToList();
+            // { "Jozef", "Vlado", "Peto", "Marek" }
         }
 
-        static void SumExample()
+        // dummy impl
+        private IEnumerable<T> SelectMany<T>(List<List<T>> nestedCollection)
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            int result = source.Sum(); // 14
+            var result = new List<T>();
+
+            foreach (var nestedList in nestedCollection)
+                foreach (var item in nestedList)
+                    result.Add(item);
+
+            return result;
         }
 
-        static void AverageExample()
+        // named FoldLeft or Reduce in other languages
+        public static void AggregateExample()
         {
-            List<int> source = new List<int> { 2, 5, 7 };
-            double result = source.Average(); // 14/3 = 4.6666666
-        }
+            var numbers = new[] { 1, 2, 3, 4, 5 };
+            var sum = numbers.Aggregate((accu, b) => accu + b); // 15
+            var sumWithOffset = numbers.Aggregate(6, (accu, b) => accu + b); // 21
 
-        static void ToListExample()
-        {
-            List<int> source = new List<int> { 2, 5, 7 };
-            // creates a new instance of list containing the same elements
-            List<int> result = source.ToList();
-        }
+            string numbersStringRepresentation =
+                numbers.Aggregate("", (accu, b) => $"{accu}{b}");
 
-        static void ToArrayExample()
-        {
-            List<int> source = new List<int> { 2, 5, 7 };
-            // creates a new instance of array containing the same elements
-            int[] result = source.ToArray(); // { 2, 5, 7 }
-        }
-
-        static void SkipExample()
-        {
-            List<int> source = new List<int> { 2, 5, 7 };
-            List<int> result = source.Skip(2).ToList(); // { 7 }
-            List<int> result2 = source.SkipWhile(x => x < 5).ToList(); // { 5, 7 }
-        }
-
-        static void TakeExample()
-        {
-            List<int> source = new List<int> { 2, 5, 7 };
-            List<int> result = source.Take(2).ToList(); // { 2, 5 }
+            // { "1", "2", "3", "4", "5" }
+            // "abc12345"
         }
     }
 }
