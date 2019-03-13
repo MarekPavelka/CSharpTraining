@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace LinqTutorial
 {
@@ -27,6 +28,11 @@ namespace LinqTutorial
             return shortNames;
         }
 
+        List<string> GetShortNamesLinq(List<Unit> units)
+        {
+            return units.Select(unit => unit.Name).Where(name => name.Length <= 5).ToList();
+        }
+
         /// <summary>
         /// Given a list of own workers, returns the first worker
         /// which is not carrying any minerals, but is not mining gas either
@@ -40,8 +46,12 @@ namespace LinqTutorial
                     return worker;
                 }
             }
-
             return null;
+        }
+
+        Unit TryGetFreeWorkerLinq(List<Unit> myWorkers)
+        {
+            return myWorkers.FirstOrDefault(x => !x.IsCarryingMinerals && !x.IsMiningGas);
         }
 
         /// <summary>
@@ -62,6 +72,10 @@ namespace LinqTutorial
             return gasWorkersCount;
         }
 
+        int GetGasWorkersCountLinq(List<Unit> myWorkers)
+        {
+            return myWorkers.Count(x => x.IsMiningGas);
+        }
         /// <summary>
         /// Given a list of own gas workers, if there are more than 3 workers mining gas,
         /// order the extra ones to gather the closest mineral
@@ -92,6 +106,14 @@ namespace LinqTutorial
             }
         }
 
+        void SendExtraGasWorkerToMineralLinq(List<Unit> myWorkers)
+        {
+            myWorkers.Where(worker => worker.IsMiningGas)
+                .Skip(3)
+                .ToList()
+                .ForEach(worker => worker.GatherClosestMineral());
+        }
+
         /// <summary>
         /// Given a list of own units and an enemy intruder,
         /// order all idle fighters inside the base to attack the intruder
@@ -105,6 +127,15 @@ namespace LinqTutorial
                     myUnit.Attack(intruder);
                 }
             }
+        }
+
+        void OrderAllFightersToAttackBaseIntruderLINQ(List<Unit> myUnits, Unit intruder)
+        {
+            myUnits.Where(unit => unit.IsInBase)
+                .Where(unit => unit.CanAttack)
+                .Where(unit => !unit.IsWorker)
+                .ToList()
+                .ForEach(unit => unit.Attack(intruder));
         }
     }
 

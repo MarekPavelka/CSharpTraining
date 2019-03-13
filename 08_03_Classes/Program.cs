@@ -32,7 +32,8 @@ namespace _08_03_Classes
             //auto1.DlzkaCesty(200);
             //auto1.WriteInfo();
             //Console.WriteLine($"Meno auta je {auto1.meno}");
-
+            var x = new Animal("orangutan", 20, 20);
+            var y = x.PureMeat;
             Console.WriteLine("Pre spustenie programu stlac enter");
             var keyPressed = Console.ReadKey(true);
             if (keyPressed.Key == ConsoleKey.Enter)
@@ -44,7 +45,7 @@ namespace _08_03_Classes
                 {
                     Console.Clear();
                     WriteMenu();
-                    var selection = Console.ReadLine();
+                    var selection;
                     switch (selection)
                     {
                         case "1":
@@ -87,9 +88,9 @@ namespace _08_03_Classes
 
                                     if (keySelectionYN.Key == ConsoleKey.N)
                                     {
-                                     Console.WriteLine("Budzes hladny");
-                                     Console.ReadLine();
-                                     break;
+                                        Console.WriteLine("Budzes hladny");
+                                        Console.ReadLine();
+                                        break;
                                     }
                                 }
                             }
@@ -128,68 +129,66 @@ namespace _08_03_Classes
         private static List<Animal> AddAnimal(List<Animal> addedAnimalList)
         {
             var index = 1;
-                do
-                {
-                    Console.WriteLine($"Zadaj meno {index}. zvierata");
-                    var meno = Console.ReadLine();
-                    Console.WriteLine($"Zadaj vek pre {meno}:");
-                    var vek = int.Parse(Console.ReadLine());
-                    Console.WriteLine($"Zadaj vahu pre {meno}:");
-                    var vaha = int.Parse(Console.ReadLine());
-                    addedAnimalList.Add(new Animal(meno, vek, vaha));
-                    Console.WriteLine("Pre skoncenie pridavania stlac Enter, pre pokracovanie stlac hocico ine");
-                    index++;
-                } while (Console.ReadKey(true).Key != ConsoleKey.Enter);
+            do
+            {
+                Console.WriteLine($"Zadaj meno {index}. zvierata");
+                var meno = Console.ReadLine();
+                Console.WriteLine($"Zadaj vek pre {meno}:");
+                var vek = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Zadaj vahu pre {meno}:");
+                var vaha = int.Parse(Console.ReadLine());
+                addedAnimalList.Add(new Animal(meno, vek, vaha));
+                Console.WriteLine("Pre skoncenie pridavania stlac Enter, pre pokracovanie stlac hocico ine");
+                index++;
+            } while (Console.ReadKey(true).Key != ConsoleKey.Enter);
             return addedAnimalList;
         }
 
         private static void WriteMenu()
         {
-            
+
             Console.WriteLine("         ZOO");
             Console.WriteLine("1. Add Animal");
             Console.WriteLine("2. Info about all animals");
             Console.WriteLine("3. Delete animal");
             Console.WriteLine("4. EXIT");
             Console.WriteLine();
-            Console.WriteLine("Zadaj volbu");
+            BlinkingText("Zadaj volbu");
+            //Console.WriteLine("Zadaj volbu");
         }
 
-        private static void BlinkingText(string text, ConsoleKeyInfo keyPressed)
+        private static int BlinkingText(string text)
         {
-            do
+            while (!Console.KeyAvailable)
             {
-                while (!Console.KeyAvailable)
+                while (true)
                 {
-                    while (true)
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine(text);
-                        Thread.Sleep(500);
-                        break;
-                    }
-                    ClearCurrentConsoleLine();
-
-                    while (true)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(text);
-                        Thread.Sleep(500);
-                        break;
-                    }
-                    ClearCurrentConsoleLine();
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(text);
+                    Thread.Sleep(500);
+                    break;
                 }
-            } while (Console.ReadKey(true).Key != ConsoleKey.D1 ||
-                     Console.ReadKey(true).Key != ConsoleKey.D2 || 
-                     Console.ReadKey(true).Key != ConsoleKey.D3);
+                ClearCurrentConsoleLine();
+
+                while (true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(text);
+                    Thread.Sleep(500);
+                    break;
+                }
+                ClearCurrentConsoleLine();
+            }
+
+            return int.Parse(Console.ReadKey(true).Key.ToString());
         }
 
         public static void ClearCurrentConsoleLine()
-            {
-                Console.SetCursorPosition(0, Console.CursorTop - 1);
-                Console.Write(new string(' ', Console.WindowWidth));
-                Console.SetCursorPosition(0, Console.CursorTop - 1);
-            }
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
         }
+    }
 }
 

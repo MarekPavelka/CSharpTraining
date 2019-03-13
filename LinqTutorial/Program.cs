@@ -8,17 +8,19 @@
         static void Main(string[] args)
         {
             // Linq 1
-            // Select(), Where(), Any(), All(), Count(), First(),
-            // Min(), Max(), Sum(), Average(), ToList(), ToArray()
-            // Skip(), SkipWhile(), Take()
+            // Select() :List<diff>, Where() :List<same>, Any() :bool, All() :bool, Count() :int, First() :<Unit>,
+            // Min() :int, Max() :int, Sum() :int, Average() :double, ToList(), ToArray()
+            // Skip() :List<int next Unit>, SkipWhile() :List<logika -> Unit>, Take() :List<first int Unit>
             // Linq 2
-            // list1.Zip(list2, (l,p) => TResult) : List<TResult>
+            // Zip(); GroupBy(); Join(), SelectMany(); Aggregate();
+            // list1.Zip(list2, (a,b) => a + b) : List<int> // po jednom berem prvky dvoch listov a robi magic
             // List<TLeft>.Zip(List<TRight>, (TLeft, TRight) => TResult) : List<Tresult>
             // list.GroupBy()
         }
 
         // List<TSource> .Select(TSource -> TResult) : List<TResult> 
         // Named "Map()" in other languages
+
         static void SelectExample()
         {
             // Declarative    { 2, 5, 7} -> { "2", "5", "7"}
@@ -74,7 +76,7 @@
         }
 
         // List<TSource> .All(TSource -> bool) : bool
-        static void AllExample()
+        static void All()
         {
             List<int> source = new List<int> { 2, 5, 7 };
             // false, because not all items in source collection are even

@@ -7,6 +7,10 @@ namespace _08_03_Classes
         public string Name { get; set; }
         public int Age { get; set; }
         public int Weight { get; set; }
+        public int PureMeat
+        {
+            get { return Weight / 4; }
+        }
 
         public Animal(string name, int age, int weight)
         {
