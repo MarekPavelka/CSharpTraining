@@ -45,7 +45,7 @@ namespace _08_03_Classes
                 {
                     Console.Clear();
                     WriteMenu();
-                    var selection;
+                    var selection = "";
                     switch (selection)
                     {
                         case "1":
