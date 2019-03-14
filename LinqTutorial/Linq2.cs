@@ -7,23 +7,23 @@ namespace LinqTutorial
     public class Linq2
     {
         public void Start()
-        { 
-                Console.WriteLine("====");
-                Console.WriteLine("  X ===");
-                Console.WriteLine("====");
-                Console.ReadKey();
-                // Linq 1
-                // Select(), Where(), Any(), All(), Count(), First(),
-                // Min(), Max(), Sum(), Average(), ToList(), ToArray()
-                // Skip(), SkipWhile(), Take()
+        {
+            Console.WriteLine("====");
+            Console.WriteLine("  X ===");
+            Console.WriteLine("====");
+            Console.ReadKey();
+            // Linq 1
+            // Select(), Where(), Any(), All(), Count(), First(),
+            // Min(), Max(), Sum(), Average(), ToList(), ToArray()
+            // Skip(), SkipWhile(), Take()
 
-                // Linq 2
-                // Zip(), GroupBy(), Join(), SelectMany(), Aggregate()
+            // Linq 2
+            // Zip(), GroupBy(), Join(), SelectMany(), Aggregate()
 
-                // Materializing Methods
-                // Any(), All(), Count(), First(), 
-                // Min(), Max(), Sum(), Average(), ToList(), ToArray()
-                Linq2Examples.JoinExample2();
+            // Materializing Methods
+            // Any(), All(), Count(), First(), 
+            // Min(), Max(), Sum(), Average(), ToList(), ToArray()
+            Linq2Examples.JoinExample2();
         }
 
         class Linq2Examples
@@ -175,5 +175,4 @@ namespace LinqTutorial
         }
     }
 
-}
 }
