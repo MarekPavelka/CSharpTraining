@@ -1,50 +1,89 @@
-﻿//namespace ClassCar
-//{
-//    // class definition
-//    public class Car
-//    {
-//        // constructor
-//        public Car(string name, int age)
-//        {
-//            Name = name;
-//            Age = age;
-//        }
-
-//        public string Name { get; set; }
-//        public int Age { get; }
-//    }
-
-//    // Usage
-//    class Program
-//    {
-//        static void Main(string[] args)
-//        {
-//            Car cc = new Car("audi", 17);
-
-//        }
-//    }
-//}
-
-using System;
-using System.Collections.Generic;
-
-namespace ClassCar
+﻿namespace Classes
 {
-    static class Program
+    using System;
+    using System.Collections.Generic;
+
+    class Program
     {
         static void Main()
         {
-            var cars = new List<string> {"audi", "bmw"};
+            //Person p = new Person();
+            Person e = new Employee(); // Person e je referencia na instanciu typu Employee
+            e.KillYourself(); // zavola sa overridnuta verzia metody
 
 
-            Console.ReadKey();
+            Customer c = new Customer();
+            c.KillYourself();
+
+            //p.KillYourself();
+
+            Console.ReadLine();
         }
 
-        private static List<string> RemoveEverythingFromList(List<string> carList)
+        // Parameter funkcie typu Person, nevie aka instancia pride
+        // nevie ktora verzia p.KillYourself() sa vykona = polymorphism
+        static void SendEmailTo(Person p) // p ma atributy iba classy Person, enkapsulacia
         {
-            carList.Clear();
-            return carList;
+            // InvalidCastException v pripade ze v p je instancia Customer
+            Employee e = p as Employee; // ak sa nepodari vrati null
+            if (e != null)
+            {
+                // ...
+            }
+
+            if (p is Employee)
+            {
+                e = (Employee)p; // explicitna konverzia "cast"
+            }
+
+            var textToSend = "Dear Mr. " + p.Name + ", ";
+            p.KillYourself();
+            // send him the email
         }
     }
 
+    public class Person
+    {
+        internal protected int _count;
+        // properties
+        public int Age { get; protected set; }
+        public string Name { get; }
+
+        // methods
+        public virtual void KillYourself()
+        {
+            Console.WriteLine("zomieram");
+        }
+    }
+
+    class Employee : Person
+    {
+        public Employee()
+        {
+            _count++;
+            Age = 21;
+        }
+
+        public double Salary { get; }
+
+        public override void KillYourself()
+        {
+            Console.WriteLine("zomieram narobeny");
+        }
+    }
+
+    class Customer : Person
+    {
+        public Customer()
+        {
+            Age = 80;
+        }
+
+        public List<string> PastOrders { get; }
+
+        public override void KillYourself()
+        {
+            Console.WriteLine("zomieram ako rich bitch");
+        }
+    }
 }
