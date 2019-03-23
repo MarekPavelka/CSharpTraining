@@ -15,6 +15,16 @@ namespace MenuCars
         public Form1()
         {
             InitializeComponent();
+            button2.Click += Button2_Click;
+            listBox1.Items.Add("yolo");
+            listBox1.Items.Add("yulo");
+            listBox1.Items.Add("klo");
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }
