@@ -13,21 +13,20 @@
             mojChar.KillYourself();
 
             var className = Sorceress.ClassName;
-            Foo();
             Sorceress tvojChar = new Sorceress("");
             tvojChar.Name = "Fidorka";
-
-            int x = 1;
-            int y = 37;
 
             //var console = new Console();
             //console.WriteLine();
         }
 
-        private static void Foo()
+        // Function overloads
+        static void Foo(int x, string y)
         {
+        }
 
-
+        static void Foo(int x, string p, bool x)
+        {
         }
     }
 }
