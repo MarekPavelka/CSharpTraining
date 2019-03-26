@@ -34,7 +34,7 @@
         public static void ZipExample()
         {
             var inputsCount = 3;
-            var inputs = new List<double> { 1.2, 3.4, 7.2 };
+            var inputs = new List<double> { 1.2, 3.4, 7.2 }; 
             var weights = new int[] { 8, -1, 7 };
 
             // Neuron.Evaluate(double[] inputs)
