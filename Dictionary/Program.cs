@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,9 +28,17 @@ namespace Dictionary
                 Console.WriteLine($"Car with this SPZ is: {cars[spz].NameOfCar}");
             }
             Console.WriteLine("Cars not found");
-            Console.ReadLine();
 
-            
+            Console.Write("Do you want to see full list of cars in database? Y/N: ");
+            if (Console.ReadKey(true).Key == ConsoleKey.Y)
+            {
+                foreach (var car in cars.Values)
+                {
+                    Console.WriteLine($"SPZ = {car.SPZ}, TYPE = {car.NameOfCar}");
+                }
+            }
+            throw new Exception("Fico je najlepsi");
+            Console.ReadLine();
         }
     }
 
