@@ -32,8 +32,7 @@ namespace _08_03_Classes
             //auto1.DlzkaCesty(200);
             //auto1.WriteInfo();
             //Console.WriteLine($"Meno auta je {auto1.meno}");
-            var x = new Animal("orangutan", 20, 20);
-            var y = x.PureMeat;
+            
             Console.WriteLine("Pre spustenie programu stlac enter");
             var keyPressed = Console.ReadKey(true);
             if (keyPressed.Key == ConsoleKey.Enter)
@@ -154,7 +153,7 @@ namespace _08_03_Classes
             Console.WriteLine("4. EXIT");
             Console.WriteLine();
             BlinkingText("Zadaj volbu");
-            //Console.WriteLine("Zadaj volbu");
+            Console.WriteLine("Zadaj volbu");
         }
 
         private static int BlinkingText(string text)

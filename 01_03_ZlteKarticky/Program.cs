@@ -16,7 +16,7 @@ namespace _01_03_ZlteKarticky
             //Pokladna.Solution();
             //GuessNumber.Solution();
             //Bankomat.Solution();
-            Factorial.Solution();
+            //Factorial.Solution();
             //Fibonacci.Solution();
             //GuessNumberFromUser.Solution();
             //CarsList.Solution();
