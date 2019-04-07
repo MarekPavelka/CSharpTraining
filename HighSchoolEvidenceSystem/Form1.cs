@@ -25,7 +25,7 @@ namespace HighSchoolEvidenceSystem
         private void label2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Main main = new Main();
+            SnakeGame.SnakeGame main = new SnakeGame.SnakeGame();
             main.Show();
         }
     }
