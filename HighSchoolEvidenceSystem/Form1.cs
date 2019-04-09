@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace HighSchoolEvidenceSystem
 {
     public partial class Form1 : Form
     {
+        SqlCommand cmd;
+        SqlConnection con;
+        SqlDataAdapter da;
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -24,9 +31,15 @@ namespace HighSchoolEvidenceSystem
 
         private void label2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            SnakeGame.SnakeGame main = new SnakeGame.SnakeGame();
-            main.Show();
+            con = new SqlConnection(@"Data Source = ZAX\LOISLANESQL; Initial Catalog = lois; Integrated Security = True");
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO LoginPassword (Login, Password) VALUES (@LOGIN, @PASSWORD)", con);
+            cmd.Parameters.AddWithValue("@LOGIN", textBox1.Text);
+            cmd.Parameters.AddWithValue("@PASSWORD", textBox2.Text);
+            cmd.ExecuteNonQuery();
+            //this.Hide();
+            //SnakeGame.SnakeGame main = new SnakeGame.SnakeGame();
+            //main.Show();
         }
     }
 }
