@@ -44,10 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bankomat.cs" />
+    <Compile Include="CarArray.cs" />
     <Compile Include="Factorial.cs" />
     <Compile Include="FactorialRecursive.cs" />
     <Compile Include="Fibonacci.cs" />
     <Compile Include="GuessNumber.cs" />
+    <Compile Include="PCGuessNumber.cs" />
     <Compile Include="Pokladna.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
