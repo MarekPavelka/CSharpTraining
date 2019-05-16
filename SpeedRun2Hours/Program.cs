@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,53 +22,144 @@ namespace SpeedRun2Hours
             //Fibonacci.Solution();
             //PCGuessNumber.Solution();
             //CarArray.Solution();
-            ReverseArray.Solution();
+            //ReverseArray.Solution();
+            //Menu.Solution();
 
             Console.ReadLine();
         }
     }
 
-    class ReverseArray
+    class Car
+    {
+        public string CarName { get; set; }
+        public string CarColor { get; set; }
+        public int CarWeight { get; set; }
+
+        public Car(string carName, string carColor, int carWeight)
+        {
+            CarName = carName;
+            CarColor = carColor;
+            CarWeight = carWeight;
+        }
+    }
+
+    class Menu
     {
         public static void Solution()
         {
-            Console.WriteLine("Postupne Zadavaj cisla ktore chces pridat do arrayu, pre skoncenie napis \"enter\"");
-            var listOfNumbers = new List<string>();
-            string input = "";
-            
-            while (input != "enter")
+            var selection = "";
+            var carList = new List<Car>();
+
+            while (selection != "5")
             {
-                input = Console.ReadLine();
-                if (input != "enter")
+                WriteMenu();
+                selection = Console.ReadLine();
+
+                switch (selection)
                 {
-                    listOfNumbers.Add(input);
+                    case "1":
+                        Console.Clear();
+                        AddCar(carList);
+                        Return();
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        ShowCars(carList);
+                        Return();
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        ShowCars(carList);
+                        Console.WriteLine();
+                        RenameCar(carList);
+                        Return();
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        ShowCars(carList);
+                        Console.WriteLine();
+                        DeleteCar(carList);
+                        Return();
+                        break;
+
+                    case "5":
+                        Console.Clear();
+                        Console.WriteLine("Koniec programu");
+                        break;
                 }
-            }
-
-            Console.WriteLine("Array ktory si zadal je: ");
-            foreach (var item in listOfNumbers)
-            {
-                Console.Write($"{item}, ");
-            }
-
-            Console.ReadLine();
-            Console.WriteLine("Obrateny array je: ");
-            foreach (var item in ReverseArrayMethod(listOfNumbers))
-            {
-                Console.Write($"{item}, ");
             }
         }
 
-        private static List<string> ReverseArrayMethod(List<string> list)
+        private static List<Car> DeleteCar(List<Car> carList)
         {
-            var reversedList = new List<string>();
+            Console.WriteLine("Write the number of Car u want to delete: ");
+            int carToDelete = int.Parse(Console.ReadLine());
+            carList.RemoveAt(carToDelete - 1);
+            return carList;
+        }
 
-            for (int i = list.Count-1; i >= 0; i--)
+        private static void RenameCar(List<Car> list)
+        {
+            Console.WriteLine("Write the name of the Car which u wanna rename: ");
+            var oldCarName = Console.ReadLine();
+            var index = list.IndexOf(list.Where(car => car.CarName == oldCarName).FirstOrDefault());
+            Console.WriteLine("Write the new name of the Car: ");
+            var newCarName = Console.ReadLine();
+            list[index].CarName = newCarName;
+        }
+
+        private static void ShowCars(List<Car> list)
+        {
+            foreach (var item in list)
             {
-                reversedList.Add(list[i]);
+                Console.WriteLine($"{item.CarName}, {item.CarColor}, {item.CarWeight}");
             }
+        }
 
-            return reversedList;
+        private static void Return()
+        {
+            Console.WriteLine();
+            Console.WriteLine("For return to menu hit backspace button");
+            while (true)
+            {
+                if (Console.ReadKey(true).Key == ConsoleKey.Backspace)
+                {
+                    Console.Clear();
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+
+        private static List<Car> AddCar(List<Car> carList)
+        {
+            Console.WriteLine("Enter the new Car name: ");
+            var carname = Console.ReadLine();
+            Console.WriteLine("Enter the new Car color: ");
+            var carcolor = Console.ReadLine();
+            Console.WriteLine("Enter the new Car weight: ");
+            var carweight = int.Parse(Console.ReadLine());
+            carList.Add(new Car(carname, carcolor, carweight));
+            return carList;
+        }
+
+        private static void WriteMenu()
+        {
+            Console.WriteLine("    Menu");
+            Console.WriteLine();
+            Console.WriteLine("1. Add Car");
+            Console.WriteLine("2. Show Cars");
+            Console.WriteLine("3. Rename Car");
+            Console.WriteLine("4. Delete Car");
+            Console.WriteLine("5. End");
+            Console.WriteLine();
+            Console.WriteLine("Zadaj svoju volbu");
         }
     }
 }
