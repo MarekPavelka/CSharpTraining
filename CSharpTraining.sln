@@ -68,6 +68,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeGame", "SnakeGame\Snak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedRun2Hours", "SpeedRun2Hours\SpeedRun2Hours.csproj", "{4623096A-2F34-4DF1-8134-30E14CB22DFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedRun2hours2", "SpeedRun2hours2\SpeedRun2hours2.csproj", "{C4CB0575-D6E8-4262-B577-77DD01FD9A34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -206,6 +208,10 @@ Global
 		{4623096A-2F34-4DF1-8134-30E14CB22DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4623096A-2F34-4DF1-8134-30E14CB22DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4623096A-2F34-4DF1-8134-30E14CB22DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4CB0575-D6E8-4262-B577-77DD01FD9A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4CB0575-D6E8-4262-B577-77DD01FD9A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4CB0575-D6E8-4262-B577-77DD01FD9A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4CB0575-D6E8-4262-B577-77DD01FD9A34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

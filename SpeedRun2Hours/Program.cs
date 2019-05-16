@@ -19,7 +19,7 @@ namespace SpeedRun2Hours
             //Bankomat.Solution();
             //Factorial.Solution();
             //FactorialRecursive.Solution();
-            //Fibonacci.Solution();
+            Fibonacci.Solution();
             //PCGuessNumber.Solution();
             //CarArray.Solution();
             //ReverseArray.Solution();
